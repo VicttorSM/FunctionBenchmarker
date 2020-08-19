@@ -51,6 +51,7 @@ namespace Aula_1
 
 
             // Here the results are displayed for each parameter
+            int decimalPlaces = 5;
             foreach (var parameter in parameters)
             {
                 Console.WriteLine($"Parameter: {parameter}");
@@ -63,7 +64,7 @@ namespace Aula_1
                     var functionNumber = i + 1;
                     var elapsedTime = benchList[i][parameter];
 
-                    Console.WriteLine($"Funtion {functionNumber} elapsed time: {elapsedTime} milliseconds");
+                    Console.WriteLine($"Funtion {functionNumber} elapsed time: {Math.Round(elapsedTime, decimalPlaces)} milliseconds");
                 }
 
 
@@ -73,7 +74,7 @@ namespace Aula_1
                 {
                     var functionNumber = i + 1;
                     var speedup = Benchmark.SpeedUpCalculator(baseSpeed, benchList[i][parameter]);
-                    Console.WriteLine($"SpeedUp of {functionNumber} compared to function 1: {speedup}");
+                    Console.WriteLine($"SpeedUp of {functionNumber} compared to function 1: {Math.Round(speedup, decimalPlaces)}");
                 }
                 Console.WriteLine();
             }
